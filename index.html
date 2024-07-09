@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <main class="presentacion">
+        <img class="presentacion__logo" src="./assets/Logo.png" alt="Logo Alura">
+        
+        <div class="presentacion__input">
+            <textarea id="textoUsuario" class="presentacion__input__text" name="textoUsuario" rows="10" cols="50">Ingrese el texto aquí</textarea>
+            
+            <div class="presentacion__input__submit">
+                <div class="presentacion__input__submit__nota">
+                    <img class="presentacion__input__submit__nota__logo" src="./assets/Importante.png" alt="logo exclamación">
+                    <p>Solo letras minúsculas y sin acentos</p>
+                </div>
+
+                <div class="presentacion__input__submit__button">
+                    <button onclick="obtenerPalabras(0);" class="presentacion__input__submit__button__encriptar">Encriptar</button>
+                    <button onclick="obtenerPalabras(1);" class="presentacion__input__submit__button__desencriptar">Desencriptar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="presentacion__output">
+            <img class="presentacion__output__imagen" src="./assets/ManSearch.png" alt="Hombre buscando un tesoro">
+            <section class="presentacion__output_info">
+                <h2 class="presentacion__output__info__titulo">Ningún mensaje fue encontrado</h2>
+                <p class="presentacion__output__info__texto">Ingresa el texto que desees encriptar o desencriptar.</p>
+                <p class="presentacion__output__info__resultado"></p>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        Desarrollado por Germán Jurado
+    </footer>
+    <script src="./app.js"></script>
+</body>
+</html>
