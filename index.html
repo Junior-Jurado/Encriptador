@@ -27,16 +27,22 @@
         </div>
 
         <div class="presentacion__output">
+        
             <img class="presentacion__output__imagen" src="./assets/ManSearch.png" alt="Hombre buscando un tesoro">
+
             <section class="presentacion__output_info">
                 <h2 class="presentacion__output__info__titulo">Ningún mensaje fue encontrado</h2>
                 <p class="presentacion__output__info__texto">Ingresa el texto que desees encriptar o desencriptar.</p>
-                <p class="presentacion__output__info__resultado"></p>
             </section>
         </div>
+        <div class="presentacion__output__resultado">
+            <p class="presentacion__output__resultado__texto"></p>
+            <button onclick="copiarTexto();" class="presentacion__output__resultado__button">Copiar</button>
+        </div>
+        
     </main>
     
-    <footer>
+    <footer class="footer">
         Desarrollado por Germán Jurado
     </footer>
     <script src="./app.js"></script>

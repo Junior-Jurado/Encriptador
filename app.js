@@ -1,3 +1,6 @@
+const output = document.querySelector('.presentacion__output');
+const resultado = document.querySelector('.presentacion__output__resultado');
+
 document.addEventListener('DOMContentLoaded', (evento) => {
     const areaDeTexto = document.getElementById('textoUsuario');
     areaDeTexto.addEventListener('focus', function() {
@@ -19,14 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const notaLogo = document.querySelector('.presentacion__input__submit__nota__logo');
 
     areaDeTexto.addEventListener('input', function() {
+        
         if (this.value.trim() === '') {
             notaTexto.textContent = 'Solo letras minúsculas y sin acentos';
             notaTexto.style.color = '#0A3871'; 
-            notaLogo.src = './assets/Importante.png'; 
-            document.querySelector('.presentacion__output').style.display = 'block';
-            document.querySelector('.presentacion__output__info__titulo').style.display = 'block';
-            document.querySelector('.presentacion__output__info__texto').style.display = 'block';
-            document.querySelector('.presentacion__output__info__resultado').style.display = 'none';
+            notaLogo.src = './assets/Importante.png';
+            output.style.display = 'flex';
+            resultado.style.display = 'none';
 
         } else {
             if (validarPalabras(this.value)) {
@@ -48,15 +50,14 @@ function obtenerPalabras(numero) {
     bandera = validarPalabras(palabras)
     if (bandera && numero == 0) {
         palabrasEncriptadas = encriptarPalabras(palabras);
-        document.querySelector('.presentacion__output__info__resultado').textContent = palabrasEncriptadas;
-        document.getElementById('textoUsuario').value = palabrasEncriptadas;
-        document.querySelector('.presentacion__output__imagen').style.display = 'none';
-        document.querySelector('.presentacion__output__info__titulo').style.display = 'none';
-        document.querySelector('.presentacion__output__info__texto').style.display = 'none';
+        resultado.style.display = 'flex';
+        document.querySelector('.presentacion__output__resultado__texto').textContent  = palabrasEncriptadas;
+        output.style.display = 'none';
     } else if (bandera && numero == 1) {
         palabrasDesencriptadas = desencriptarPalabras(palabras);
-        document.querySelector('.presentacion__output__info__resultado').textContent = palabrasDesencriptadas;
-        document.getElementById('textoUsuario').value = palabrasDesencriptadas;
+        resultado.style.display = 'flex';
+        document.querySelector('.presentacion__output__resultado__texto').textContent = palabrasDesencriptadas;
+        output.style.display = 'none';
     }
     
 }
@@ -122,7 +123,23 @@ function desencriptarPalabras(texto) {
     return texto;
 }
 
-function asignarTextoAElemento(elemento, texto) {
-    let elementoHTML = document.querySelector(elemento);
-    elementoHTML.innerHTML = texto;
+function copiarTexto() {
+    const copy = document.querySelector('.presentacion__output__resultado__texto');
+
+    // Verificación de que el elemento existe y tiene texto
+    if (copy) {
+        // Obtener el texto dentro del elemento
+        const texto = copy.textContent.trim();
+
+        // Intentar copiar el texto al portapapeles
+        navigator.clipboard.writeText(texto)
+            .then(() => {
+                console.log('Texto copiado al portapapeles: ' + texto);
+            })
+            .catch(err => {
+                console.error('Error al intentar copiar el texto: ', err);
+            });
+    } else {
+        console.error('No se encontró ningún elemento con la clase especificada.');
+    }
 }
