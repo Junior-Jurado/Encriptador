@@ -135,6 +135,18 @@ function copiarTexto() {
         navigator.clipboard.writeText(texto)
             .then(() => {
                 console.log('Texto copiado al portapapeles: ' + texto);
+                const botonCopiar = document.querySelector('.presentacion__output__resultado__button');
+                botonCopiar.textContent = 'Copiado';
+                botonCopiar.style.backgroundColor = 'var(--color-cuaternario)';
+                botonCopiar.style.color = 'white';
+
+                // Después de 1 segundo, volver el texto y color original del botón
+                setTimeout(() => {
+                    botonCopiar.textContent = 'Copiar';
+                    botonCopiar.style.backgroundColor = 'transparent';
+                    botonCopiar.style.color = 'var(--color-secundario)';
+                    botonCopiar.style.border = '2px solid var(--color-secundario)';
+                }, 1000);
             })
             .catch(err => {
                 console.error('Error al intentar copiar el texto: ', err);

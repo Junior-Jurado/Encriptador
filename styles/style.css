@@ -25,7 +25,8 @@ body {
 }
 
 .presentacion__logo {
-    width: 120px;
+    margin: 0px 120px;
+    width: 32px;
     height: 48px;
 }
 
@@ -34,7 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 680px;
+    width: 50%;
 }
 
 .presentacion__input__text {
@@ -44,7 +45,7 @@ body {
     outline: none;
     height: max-content;
     font-family: var(--fuente-inter);
-    font-size: 32px;
+    font-size: 2rem;
     color: var(--color-secundario);
     overflow-y: auto;
 }
@@ -74,7 +75,7 @@ body {
     gap: 8px;
     align-items: center;
     font-family: var(--fuente-inter);
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--color-secundario);
 }
 
@@ -90,13 +91,13 @@ body {
 }
 
 .presentacion__input__submit__button__encriptar {
-    width: 328px;
+    width: 50%;
     height: 67px;
     background-color: var(--color-secundario);
     border-radius: 24px;
     color: white;
     font-family: var(--fuente-inter);
-    font-size: 16px;
+    font-size: 1rem;
     border: none;
     cursor: pointer;
 }
@@ -106,13 +107,13 @@ body {
 }
 
 .presentacion__input__submit__button__desencriptar {
-    width: 328px;
+    width: 50%;
     height: 67px;
     background-color: transparent;
     border: 2px solid var(--color-secundario);
     border-radius: 24px;
     font-family: var(--fuente-inter);
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--color-secundario);
     cursor: pointer;
 }
@@ -150,12 +151,12 @@ body {
 }
 
 .presentacion__output__info__titulo {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .presentacion__output__info__texto {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .presentacion__output__resultado {
@@ -163,17 +164,17 @@ body {
     background-color: white;
     border-radius: 32px;
     font-family: var(--fuente-inter);
-    width: 340px;
+    width: 400px;
     padding: 32px;
     gap: 32px;
-    font-size: 24px;
+    font-size: 1.5rem;
     color: var(--color-gris-400);
     display: none;
 }
 
 .presentacion__output__resultado__texto {
     width: 100%;
-    height: 781px;
+    height: 100%;
     text-align: left;
     overflow-y: auto;
     word-wrap: break-word;
@@ -199,13 +200,13 @@ body {
 }
 
 .presentacion__output__resultado__button {
-    width: 328px;
+    width: 100%;
     height: 67px;
     background-color: transparent;
     border: 2px solid var(--color-secundario);
     border-radius: 24px;
     font-family: var(--fuente-inter);
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--color-secundario);
     cursor: pointer;
 }
@@ -225,4 +226,93 @@ body {
     font-family: var(--fuente-montserrat);
     font-size: 1.5rem;;
     font-weight: 400;
+    width: auto;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    .presentacion {
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .presentacion__input {
+        padding: 60px 0px;
+        width: auto;
+    }
+    
+    .presentacion__logo {
+        margin: 0;
+    }
+
+    .presentacion__output {
+        width: auto;
+    }
+
+    .presentacion__output__imagen {
+        display: none;
+    }
+
+    .presentacion__output__resultado {
+        width: auto;
+    }
+
+    .presentacion__output__resultado__texto {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+@media (max-width: 485px) {
+    .presentacion {
+        gap: 0px;
+    }
+
+    .presentacion__input {
+        width: auto;
+        gap: 0px;
+        padding: 50px 0px;
+    }
+
+    .presentacion__input__submit__button {
+        flex-direction: column;
+    }
+
+    .presentacion__input__submit__button__encriptar {
+        width: 100%;
+    }
+    .presentacion__input__submit__button__desencriptar {
+        width: 100%;
+    }
+
+    .presentacion__output {
+        width: auto;
+        padding: 32px;
+    }
+
+    .presentacion__output__resultado {
+        padding: 32px;
+        width: auto;
+    }
+
+    .footer {
+        padding: 16px;
+        font-size: 1.2rem;
+    }
+    .footer a {
+        display: block;
+        margin: 8px 0;
+    }
+    .footer .separator {
+        display: none;
+    }
+    
 }
